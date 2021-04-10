@@ -5,7 +5,7 @@ Simple Flask project that loads pandas dataframe into the database and shows the
 
 - Create a simple Flask [app](/app.py)
 - Download a public [pandas](./titanic.csv) DF
-- Create a SQLite DB and a table to save the information
+- Create an SQLite DB and a table to save the information
 - Load pandas in DB using a new `custom command`
 - Visualize the data in the browser
 
@@ -53,7 +53,7 @@ $ # (Windows) set FLASK_ENV=development
 $ # (Powershell) $env:FLASK_ENV = "development"
 $ 
 $ flask run 
-$ # access the app in the browser: http://localhost:5005 
+$ # access the app in the browser: http://localhost:5000
 ```
 
 <br />
