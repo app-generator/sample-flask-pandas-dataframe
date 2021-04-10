@@ -29,7 +29,7 @@ class Data(db.Model):
     passengerId  = db.Column(db.Integer,     primary_key=True )
     name         = db.Column(db.String(250), nullable=False   )
     survived     = db.Column(db.Integer,     nullable=False   )
-    sex          = db.Column(db.String(10 ), default=None     ) # name, female
+    sex          = db.Column(db.String(10 ), default=None     )
     age          = db.Column(db.Integer,     default=-1       ) 
     fare         = db.Column(db.Float,       default=-1       )
 
