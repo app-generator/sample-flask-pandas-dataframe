@@ -13,17 +13,17 @@ import pandas            as pd                # process pandas
 # Invoke Flask magic
 app = Flask(__name__)
 
-# Configuration
+# App Configuration
 app.config['SECRET_KEY'] = 'S_U_perS3crEt_KEY#9999'
 
-# SQLAlchemy minimal configuration
+# SQLAlchemy Configuration
 app.config['SQLALCHEMY_DATABASE_URI']        = 'sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Construct the DB Object (SQLAlchemy interface)
+# DB Object = SQLAlchemy interface
 db = SQLAlchemy (app)
 
-# Store Titanic data
+# Define the storage
 class Data(db.Model):
 
     passengerId  = db.Column(db.Integer,     primary_key=True )
@@ -33,6 +33,7 @@ class Data(db.Model):
     age          = db.Column(db.Integer,     default=-1       ) 
     fare         = db.Column(db.Float,       default=-1       )
 
+    # Table constructor - called by the custom command 'load_data'
     def __init__(self, passengerId, name, survived, sex, age, fare):
         self.passengerId = passengerId
         self.name        = name
@@ -41,24 +42,24 @@ class Data(db.Model):
         self.age         = age
         self.fare        = fare
 
+    # The string representation of the class
     def __repr__(self):
         return str(self.passengerId) + ' - ' + str(self.name) 
 
-# Custom command
+# Define the custom command
 @app.cli.command("load-data")
 @click.argument("fname")
 def load_data(fname):
     ''' Load data from a CSV file '''
     print ('*** Load from file: ' + fname)
 
-    #engine = create_engine( app.config['SQLALCHEMY_DATABASE_URI'], echo=True ) 
+    # Build the Dataframe from pandas
     df = pd.read_csv( fname )
-    
-    #df.to_sql('data', con=engine)
+
+    # Iterate and load the data     
     for row in df.itertuples(index=False):
-        
+
         print ( '************************************************' )
-        # print ( str(row[0]) + ' - ' + str(row[3]))
 
         v_passengerId = row[0]
         v_survived    = row[1]
@@ -81,7 +82,7 @@ def load_data(fname):
     # All good, commit changes
     db.session.commit( )
 
-# Routes
+# Default Route 
 @app.route('/')
 def hello_world():
     retVal  = 'Hello, the database has ('+str( len(Data.query.all()) )+') rows' 
@@ -89,7 +90,7 @@ def hello_world():
 
     return retVal
 
-# Routes
+# Data Route - Shows the loaded information
 @app.route('/data')
 def data():
 
@@ -97,4 +98,4 @@ def data():
 
     for row in Data.query.all():
         retVal += '<br />' + str( row.__repr__() )             
-    return retVal 
+    return retVal
