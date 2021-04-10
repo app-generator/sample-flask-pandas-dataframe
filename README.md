@@ -11,7 +11,7 @@ Simple Flask project that loads a pandas (dataframe) into database and use SqlAl
 
 <br />
 
-![Flask Pandas Dataframe - media file.](./media.png)
+![Flask Pandas Dataframe - media file.](https://raw.githubusercontent.com/app-generator/flask-pandas-dataframe/main/media/screen.png)
 
 <br />
 
