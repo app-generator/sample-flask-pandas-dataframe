@@ -11,7 +11,15 @@ Simple Flask project that loads pandas dataframe into the database and shows the
 
 <br />
 
+**Pandas Dataframe** - Console View
+
 ![Flask Pandas Dataframe - media file.](https://raw.githubusercontent.com/app-generator/flask-pandas-dataframe/main/media/screen.png)
+
+<br />
+
+**Pandas Dataframe** - Browser View
+
+![Flask Pandas Dataframe - visualize data in the browser.](https://raw.githubusercontent.com/app-generator/flask-pandas-dataframe/main/media/loaded-data.png)
 
 <br />
 
