@@ -1,6 +1,6 @@
 # Flask Pandas Dataframe
 
-Simple Flask project that loads a pandas (dataframe) into database and use SqlAlchemy to show the information in the browser. 
+Simple Flask project that loads pandas dataframe into the database and shows the information on a page.  
 **Flask Pandas Dataframe** is a `one-file` project that migth help beginners to understand some basic Flask concepts:  
 
 - Create a simple Flask [app](/app.py)
