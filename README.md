@@ -1,7 +1,7 @@
 # Flask Pandas Dataframe
 
 Simple Flask project that loads pandas dataframe into the database and shows the information on a page.  
-**Flask Pandas Dataframe** is a `one-file` project that might help beginners to understand some basic Flask concepts:  
+**[Flask Pandas Dataframe](https://blog.appseed.us/flask-pandas-dataframe-how-to-code/)** is a `one-file` project that might help beginners to understand some basic Flask concepts:  
 
 - Create a simple Flask [app](/app.py)
 - Download a public [pandas](./titanic.csv) DF
